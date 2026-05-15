@@ -1,0 +1,4 @@
+.env
+cti_env/
+__pycache__/
+*.pyc

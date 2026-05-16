@@ -1,21 +1,47 @@
-Advanced Threat Intelligence Platform
+# Advanced Threat Intelligence Platform
 
-VirusTotal Threat Feed Integration
+# Overview
+It is a cybersecurity project focused on collecting, processing, and analyzing threat intelligence data from multiple external sources/APIs. 
+The goal of the platform is to centralize malicious indicators such as:
 
-Overview
-This module integrates the VirusTotal API into the Advanced Threat Intelligence Platform (ATIP).
+-Malicious URLs
+-IP addresses
+-Domains
+-File hashes
+-Threat reports
 
-The objective of this module is to:
-- Connect securely to the VirusTotal API
-- Fetch threat intelligence indicators
-- Normalize IOC data into a common schema
-- Store indicators in MongoDB
-- Support future enrichment and analytics workflows
+and provide a unified system for threat monitoring and intelligence enrichment.
 
-Technologies Used
-- Python 3
-- Requests
+# Integrations
+- Alienvault OTX
+- URLhaus
+- VirusTotal
+
+# Database
 - MongoDB
-- Docker
-- pymongo
-- python-dotenv
+
+# Core Objectives
+- Aggregate threat intelligence from multiple sources
+- Normalize collected IOC data
+- Reduce duplicate indicators
+- Improve threat visibility
+- Enable future automation and alerting
+- Build scalable cybersecurity intelligence workflows
+
+# Technologies Used
+- Python 3
+- MongoDB
+- Git & GitHub
+- Kali Linux
+- Docker Containers
+- Virtual Environments (venv)
+
+# Future Improvements
+- Dashboard/UI
+- IOC search engine
+- Threat correlation engine
+- SIEM integration
+- Real-time alerting
+- Automated reporting
+- Docker deployment
+

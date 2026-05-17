@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mongodb:
     image: mongo:4.4
@@ -20,6 +18,10 @@ services:
     container_name: atip-mongo-gui
     ports:
       - "8081:8081"
+    networks:
+      - elk-network
+    depends_on:
+      - mongodb
     environment:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=password123
@@ -49,7 +51,9 @@ services:
     volumes:
       - ./logstash/pipeline:/usr/share/logstash/pipeline
     environment:
-      - LS_JAVA_OPTS=-Xms256m -Xmx256m
+      - LS_JAVA_OPTS=-Xms1g -Xmx1g
+      - MONGO_USER=${MONGO_USERNAME} # Left side: Container variable | Right side: .env variable
+      - MONGO_PASS=${MONGO_PASSWORD}
     networks:
       - elk-network
     depends_on:

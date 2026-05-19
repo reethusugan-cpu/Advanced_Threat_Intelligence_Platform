@@ -35,8 +35,11 @@ services:
     container_name: elasticsearch
     environment:
       - discovery.type=single-node
-      - xpack.security.enabled=false # Disabled for initial dev setup
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      # DEV SETUP ONLY: Disabling X-Pack security and SSL to simplify initial multi-module local integration
+      - xpack.security.enabled=false
+      - xpack.security.http.ssl.enabled=false
+      # JVM Resource Optimization: Caps heap memory at 512MB to prevent OOM/crashes inside local VMs or resource-constrained dev environments 
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
     ports:
       - "9200:9200"
     networks:

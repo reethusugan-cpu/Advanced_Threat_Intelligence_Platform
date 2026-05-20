@@ -9,9 +9,8 @@ services:
     volumes:
       - mongo-data:/data/db
     environment:
-      # Creds for the Web UI (added by Team Lead for local access) 
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=password123
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
 
   mongo-express:
     image: mongo-express:latest
@@ -23,11 +22,11 @@ services:
     depends_on:
       - mongodb
     environment:
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=password123
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGO_USERNAME}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_PASSWORD}
       - ME_CONFIG_MONGODB_SERVER=mongodb
-      - ME_CONFIG_BASICAUTH_USERNAME=admin
-      - ME_CONFIG_BASICAUTH_PASSWORD=password123
+      - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_USERNAME}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_PASSWORD}
 
   # Elasticsearch: The Search & Analytics Engine
   elasticsearch:

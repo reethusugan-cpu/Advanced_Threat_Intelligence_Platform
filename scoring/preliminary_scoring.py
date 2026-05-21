@@ -9,19 +9,22 @@ from database.mongo_handler import collection
 from scoring.mitre.technique_mapper import mapper
 
 SOURCE_SCORES = {
-    "OpenPhish": 85,
-    "AlienVault": 65
+    "OpenPhish": 60,
+    "AlienVault": 50
 }
 
+# IOC Specificity Modifiers
+# Rationale: A hash or full URL is a highly specific, exact match to a threat.
+# A domain is broader. An IP is the broadest (could be shared hosting/CDN), so it adds no extra points.
 IOC_TYPE_SCORES = {
-    "url": 10, "file": 10, "md5": 10, "sha256": 10, "FileHash-MD5": 10, "FileHash-SHA256": 10,
+    "url": 10, "file": 15, "md5": 15, "sha256": 15, "FileHash-MD5": 15, "FileHash-SHA256": 15,
     "domain": 5, "hostname": 5,
     "IPv4": 0, "IP": 0
 }
 
 THREAT_KEYWORDS = ["ransomware", "stealer", "c2", "command and control", "backdoor", "apt", "phishing", "beacon", "trojan"]
 
-CONFIDENCE_SCORES = {"high": 5, "medium": 0, "low": -15}
+CONFIDENCE_SCORES = {"high": 5, "medium": 0, "low": -10}
 
 def get_age_modifier(date_str):
     if not date_str: return 0
@@ -33,8 +36,8 @@ def get_age_modifier(date_str):
                 hours = max(0, (datetime.utcnow() - parsed_date).total_seconds() / 3600.0)
                 if hours < 24: return 10
                 if hours < 24 * 7: return 0
-                if hours < 24 * 30: return -15
-                return -30
+                if hours < 24 * 30: return -10
+                return -20
             except ValueError:
                 pass
     except Exception:
@@ -44,21 +47,21 @@ def get_age_modifier(date_str):
 def calculate_preliminary_score(doc):
     score = 0
     
-    # 1. Base Source Score
+    # 1. Base Source Score (Lowered from 90 to leave room for modifiers)
     source = doc.get("source", "")
     if source == "URLHaus":
-        score += 90 if doc.get("status", "") in ["active", "online"] else 50
+        score += 60 if doc.get("status", "") in ["active", "online"] else 30
     elif "AlienVault" in source:
-        score += 65
+        score += 50
     else:
-        score += SOURCE_SCORES.get(source, 50)
+        score += SOURCE_SCORES.get(source, 40)
 
-    # 2. IOC Type Modifiers
+    # 2. IOC Type Modifiers (Specificity)
     score += IOC_TYPE_SCORES.get(doc.get("ioc_type", ""), 0)
 
-    # 3. Threat Keywords Modifiers
+    # 3. Threat Context Modifiers
     if doc.get("malware_family", "unknown") != "unknown":
-        score += 15
+        score += 10
         
     threat_text = f"{doc.get('threat_type', '')} {' '.join(doc.get('tags', []))}".lower()
     if any(kw in threat_text for kw in THREAT_KEYWORDS):

@@ -1,0 +1,1602 @@
+[
+    {
+        "indicator": "http://124.29.214.39:41859/Mozi.m",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ua-wget",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://42.238.170.162:60263/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://39.74.34.21:40121/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://110.39.255.101:38010/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://115.55.217.157:36506/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://netvector.wiki/29eb1df6-6d14-4af7-a269-d54f4eab59a5/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://netvector.wiki/29eb1df6-6d14-4af7-a269-d54f4eab59a5/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://netvector.wiki/${uuid__}/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://netvector.wiki/$%7Buuid__%7D/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://netvector.wiki/0220461a-e5ed-47e6-bfa5-e66b0ea86b96/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://netvector.wiki/0220461a-e5ed-47e6-bfa5-e66b0ea86b96/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://110.39.255.101:38010/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://netvector.wiki/516b5f87-d872-40da-bda8-d20b31c2a180/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://netvector.wiki/516b5f87-d872-40da-bda8-d20b31c2a180/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://39.74.34.21:40121/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://netvector.wiki/fae81002-82da-484f-8f0c-4be2e154a7cb/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://netvector.wiki/fae81002-82da-484f-8f0c-4be2e154a7cb/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://113.229.117.222:42385/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "https://netvector.wiki/ccd0950c-3cc5-4378-975d-90956ef8162c/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://netvector.wiki/ccd0950c-3cc5-4378-975d-90956ef8162c/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://61.53.117.41:59751/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://115.55.217.157:36506/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://netvector.wiki/b7c252d5-5141-4448-bc4f-f96a457d994d/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://netvector.wiki/b7c252d5-5141-4448-bc4f-f96a457d994d/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://datapulse.wiki/7861c157-638e-4210-b2de-f8bbd4c06d32/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://datapulse.wiki/7861c157-638e-4210-b2de-f8bbd4c06d32/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/dcm-t1/101125/raw/main/T1.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://raw.githubusercontent.com/dcm-t1/101125/main/T1.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://raw.githubusercontent.com/pd1-pd/t1-26/main/T1.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "http://171.37.125.151:41472/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://github.com/pd1-pd/d/raw/main/PD-92725.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://github.com/pd1-pd/t1-26/raw/main/T1.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://github.com/pd1-pd/d/raw/main/PD-92725.zip/",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://datapulse.wiki/68102b7c-8334-4fdd-a2bc-2d8c9bafd95f/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/rouskii126/hihi/raw/main/Document.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://datapulse.wiki/68102b7c-8334-4fdd-a2bc-2d8c9bafd95f/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/ud-pd/ut1-26/blob/main/up-t1.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://raw.githubusercontent.com/ud-pd/PD-9-11125/main/u-p.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://github.com/ud-pd/ut1-26/raw/main/up-t1.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://raw.githubusercontent.com/rouskiiu/ut/main/ud.txt",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://raw.githubusercontent.com/ud-pd/ut1-26/main/up-t1.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://raw.githubusercontent.com/ud-7-te/ud-vtn/main/ud-t2.txt",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://github.com/ud-pd/PD-9-11125/raw/main/u-p.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/ud-pd/102125/blob/main/ud.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/pd1-pd/d-3t/blob/main/DCM-T2.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://raw.githubusercontent.com/ud-pd/102125/main/ud.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://fast.raidher.icu/d7cdb85d-1901-4f9c-ac4d-edac1430b673",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/ud-pd/102125/blob/main/u-p.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/ud-pd/102125/raw/main/ud.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://raw.githubusercontent.com/ud-pd/ut1-26/main/ud.txt",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://proishestvie2026onlaine.vercel.app/?download=1",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://51523.file-open.surf/download",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/pd1-pd/d/blob/main/PD-92725.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/ud-pd/ut1-26/blob/main/ud.txt",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/ud-pd/PD-9-11125/blob/main/ud.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://ok-dtpnew.cyou/api/download",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://photo-album-jopki.vercel.app/?download=1",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/pd1-pd/t1-26/blob/main/T1.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/pd1-pd/d-3t/blob/main/DCM-T1.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://raw.githubusercontent.com/rouskii126/hihi/main/Document.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://dtp-photo19.file-open.surf/download",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://avariya.cfd/api/download",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/pd1-pd/d-3t/blob/main/DCM-T3.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://photogrs-rid.top/api/download",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://dtp-photos10.file-open.surf/download",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://ok-ru-photo6.live/api/download",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://svo-baza-poisk.pro/api/download",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://smother-portf.file-open.surf/download",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/ud-pd/PD-9-11125/blob/main/u-p.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://176.65.139.42/aarch64",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://176.65.139.42/sparc",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://176.65.139.42/powerpc64",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "https://photo-albuum.vercel.app/?download=1",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://fotolends.lat/app.apk",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://datapulse.wiki/aba86bec-6d75-44a9-8a64-9fe1c7a9ed8e/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://87.121.79.160/389242390482/3atoNational.arm7",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://87.121.79.160/389242390482/3atoNational.mpsl",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://176.65.139.42/sh4",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://87.121.79.160/389242390482/3atoNational.ppc",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://176.65.139.42/m68k",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://176.65.139.42/x86_64",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://176.65.139.42/armhf",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://176.65.139.42/i686",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://176.65.139.42/mipsel",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://176.65.139.42/arm",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "https://datapulse.wiki/aba86bec-6d75-44a9-8a64-9fe1c7a9ed8e/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://russia24.icu/?download=1",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://photoalbbum.vercel.app/?download=1",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://176.65.139.42/arc",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://photo-album-anusa.vercel.app/?download=1",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://94.141.122.175/app.apk",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://w63709gi.beget.tech/images/launcher.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://87.121.79.160/389242390482/3atoNational.mips",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://87.121.79.160/389242390482/3atoNational.arm5",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "https://fotomaxinstall.click/app.apk",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "online"
+    },
+    {
+        "indicator": "https://www.dropbox.com/scl/fi/ysnyliaosnn1mng2sorqi/SWIFT_3786.rar?rlkey=brotbnbbrem89mnvv1fi9qike&st=6teip751&dl=1",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://5.252.155.138/app.apk",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "online"
+    },
+    {
+        "indicator": "https://www.fotoinstalll.ink/app.apk",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "online"
+    },
+    {
+        "indicator": "http://87.121.79.160/389242390482/3atoNational.x86",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://87.121.79.160/389242390482/3atoNational.m68k",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://87.121.79.160/389242390482/3atoNational.arm6",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://87.121.79.160/389242390482/3atoNational.arm",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://87.121.79.160/389242390482/3atoNational.spc",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "https://photomax-12-05.vercel.app/?download=1",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://avariya2026dtpru.vercel.app/?download=1",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "apk ",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://github.com/DoodleNoodle123/win-stager.msi/blob/main/win-stager.ps1",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Cryptojacker",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://09c1d5c3-1a6e-4c05-8e4e-eff75c6b5dd6.usrfiles.com/ugd/09c1d5_b4a43d563e1e4b159370953dd56117b7.txt",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxni386xnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnpowerpcxnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnx86_64xnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnm68kxnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnloongarch64xnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnmicroblazexnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnriscv32xnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnmipsxnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnaarch64xnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnor1kxnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnsh2xnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://briskinternet.com/dynamic?txd=fa90319c89e7a0272c859f9f1403c6c2f12793281d3a295ce283d6018d5dd1c3",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "MacSync",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnriscv64xnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://159.223.61.11/bins/xnxnxnxnxnxnxnxnsh4xnxn",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://62.60.226.140/files/7382018045/o4lpmLr.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://62.60.226.140/files/1772561689/fOhQD4r.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://62.60.226.140/files/8717422379/BKrjaut.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://62.60.226.140/files/5763009148/SJFCqIb.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://62.60.226.140/files/7879618597/fcLwbGc.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://ucc6e338a3f30f0e0b9b543ba09c.dl.dropboxusercontent.com/cd/0/get/DAPyiZ_5HzacpxFjtb3nYYXon0dHzb8B6HVHTrZVXIIPqX4YU64LENqt8Q9bLHIulrOQZMonpcVHxRIZfBrTyUMG2Dszpwv8SGQDETFxPULF2stbX99F8cwxFjbtobdZoQauGsThVj9JLK24AVRPM1gY/file?dl=1#",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://176.65.139.42/cat.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "script",
+        "status": "online"
+    },
+    {
+        "indicator": "http://62.60.226.140/files/8176913892/tn1wyvZ.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://62.60.226.140/files/8183300806/oN4LIG4.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://62.60.226.140/files/5763009148/yw3H0gr.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://62.60.226.140/files/6099399783/P5EUIw0.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://62.60.226.140/files/6099399783/iQAl9vy.exe",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "c2-monitor-auto",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://datapulse.wiki/f5c72f77-e5c3-4809-bc6e-7c410d1125a3/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://datapulse.wiki/f5c72f77-e5c3-4809-bc6e-7c410d1125a3/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://datapulse.wiki/40ff8fc1-a68b-4a64-9dfd-93335bf12dc6/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://datapulse.wiki/40ff8fc1-a68b-4a64-9dfd-93335bf12dc6/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://datapulse.wiki/801dca8b-4664-4b6d-812e-386df653fe18/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://datapulse.wiki/801dca8b-4664-4b6d-812e-386df653fe18/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://114.226.89.121:42060/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://datapulse.wiki/faae9401-3489-419a-9e8e-a539ce4b92b0/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://datapulse.wiki/faae9401-3489-419a-9e8e-a539ce4b92b0/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://valfanto.com/img_EVA.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "http://valfanto.com/YUBEST.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://valfanto.com/linkhgyrb/bkrraFg.txt",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://valfanto.com/iiseva.png",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://valfanto.com/otsifar/othoytr.js",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://valfanto.com/files/Comany_Profile_Order%20requirment_DEC_JAN2026_2025.zip",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://datapulse.wiki/1fb067ff-f42d-4f2b-ba15-c01743d4725e/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://datapulse.wiki/1fb067ff-f42d-4f2b-ba15-c01743d4725e/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://175.173.114.99:53938/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://113.229.117.222:42385/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "https://datapulse.wiki/f5ae095a-8c5c-407b-bb3d-0d60997d8829/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://datapulse.wiki/f5ae095a-8c5c-407b-bb3d-0d60997d8829/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://60.23.237.199:42497/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "https://dashcorpcloud.co/9a01fd0a-13e1-444c-b49b-65626cac8fbe/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://dashcorpcloud.co/9a01fd0a-13e1-444c-b49b-65626cac8fbe/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://61.53.117.97:47597/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://dashcorpcloud.co/d8a61f16-8f5a-433a-bf05-82eb3f4b20c8/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://dashcorpcloud.co/d8a61f16-8f5a-433a-bf05-82eb3f4b20c8/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://dashcorpcloud.co/837f9d89-ec7d-4758-b2dc-83c54babcbfc/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://dashcorpcloud.co/837f9d89-ec7d-4758-b2dc-83c54babcbfc/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://dashcorpcloud.co/308670ee-6163-4699-9ce9-f8e7906a9ba8/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://dashcorpcloud.co/308670ee-6163-4699-9ce9-f8e7906a9ba8/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://114.226.89.121:42060/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://dashcorpcloud.co/2cf77e4a-1f3e-40c0-88f9-6c457d5023d1/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://dashcorpcloud.co/2cf77e4a-1f3e-40c0-88f9-6c457d5023d1/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://115.50.216.112:49374/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://60.23.237.199:42497/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "unknown",
+        "status": "online"
+    },
+    {
+        "indicator": "http://dashcorpcloud.co/8b1beffc-4771-4102-b186-f9330df2e167/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://dashcorpcloud.co/8b1beffc-4771-4102-b186-f9330df2e167/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://150.255.27.41:55895/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://dashcorpcloud.co/c77a256b-c000-4b24-8d8b-47ee65a11880/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://dashcorpcloud.co/c77a256b-c000-4b24-8d8b-47ee65a11880/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://187.45.95.254:45299/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://110.36.15.18:43555/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://110.36.25.33:58460/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://dashcorpcloud.co/528dcbb4-3368-4d19-8379-2a6b7d63e38b/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://dashcorpcloud.co/528dcbb4-3368-4d19-8379-2a6b7d63e38b/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://global-cloud-infra-logic-manual.wiki/e49776bd-0137-4afe-95ac-8c57c27805ec/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://global-cloud-infra-logic-manual.wiki/e49776bd-0137-4afe-95ac-8c57c27805ec/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://171.125.42.46:48861/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "mirai",
+        "status": "online"
+    },
+    {
+        "indicator": "http://27.96.93.32:33596/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "https://master-system-data-core-wiki.wiki/e4d02f79-9e4c-4561-99bc-58e24778366d/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://115.52.178.165:43750/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://119.184.46.80:34341/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://master-system-data-core-wiki.wiki/e4d02f79-9e4c-4561-99bc-58e24778366d/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://master-system-data-core-wiki.wiki/c685cde4-7d6c-4b1f-b243-9ffb7d27a096/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://master-system-data-core-wiki.wiki/c685cde4-7d6c-4b1f-b243-9ffb7d27a096/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://42.57.37.3:39937/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "http://110.36.25.33:58460/bin.sh",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "https://master-system-data-core-wiki.wiki/a33c02c0-1087-4e71-8994-9302bc719b73/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://master-system-data-core-wiki.wiki/a33c02c0-1087-4e71-8994-9302bc719b73/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://110.39.230.171:38205/i",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "Mozi",
+        "status": "online"
+    },
+    {
+        "indicator": "https://master-system-data-core-wiki.wiki/da00e80a-eebe-4913-9115-d8826d9b1801/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://master-system-data-core-wiki.wiki/da00e80a-eebe-4913-9115-d8826d9b1801/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://master-system-data-core-wiki.wiki/36703d46-db3d-4c8a-818a-fb404cdcb68f/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://master-system-data-core-wiki.wiki/36703d46-db3d-4c8a-818a-fb404cdcb68f/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "https://b5fdl2mw.hor1inka-lonely.digital/?ublib=AffXhYxyAmOysCZb",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    },
+    {
+        "indicator": "http://tech-script-logic-unit-reference.wiki/8170b732-cf1a-40a3-ac14-68edaf35dbaf/google.ct",
+        "ioc_type": "url",
+        "source": "URLHaus",
+        "threat_type": "malware_download",
+        "malware_family": "ClearFake",
+        "status": "offline"
+    }
+]

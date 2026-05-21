@@ -1,7 +1,11 @@
-import requests
-from dotenv import load_dotenv
+import sys
 import os
 
+# Add project root to Python path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import requests
+from dotenv import load_dotenv
 from database.mongo_handler import collection
 
 # Load environment variables
@@ -15,66 +19,128 @@ headers = {
     "X-OTX-API-KEY": API_KEY
 }
 
-# OTX Pulse Endpoint
-url = "https://otx.alienvault.com/api/v1/pulses/subscribed"
+# OTX Endpoint
+base_url = "https://otx.alienvault.com/api/v1/pulses/subscribed"
 
-# Request
-response = requests.get(url, headers=headers)
+# Pagination Settings
+page = 1
+MAX_PAGES = 5
 
-# Success Check
-if response.status_code == 200:
+# Counters
+inserted_count = 0
+duplicate_count = 0
 
+# Fetch Multiple Pages
+while page <= MAX_PAGES:
+
+    print(f"\n========== Fetching Page {page} ==========")
+
+    try:
+
+        # API Request
+        response = requests.get(
+            base_url,
+            headers=headers,
+            params={"page": page},
+            timeout=10
+        )
+
+    except requests.exceptions.RequestException as e:
+
+        print(f"Request failed: {e}")
+        break
+
+    # Check Response
+    if response.status_code != 200:
+
+        print(f"Failed to fetch data. Status Code: {response.status_code}")
+        break
+
+    # Convert Response to JSON
     data = response.json()
 
-    count = 0
+    # Get Pulse Results
+    results = data.get("results", [])
 
-    # Loop through pulses
-    for pulse in data.get("results", []):
+    # Stop if no more pages
+    if not results:
+
+        print("No more pulses found.")
+        break
+
+    # Loop Through Pulses
+    for pulse in results:
 
         pulse_name = pulse.get("name")
+        pulse_id = pulse.get("id")
+        author = pulse.get("author_name")
+        created = pulse.get("created")
 
         indicators = pulse.get("indicators", [])
 
-        # Loop through indicators
+        print(f"\nPulse: {pulse_name}")
+        print(f"Indicators Found: {len(indicators)}")
+
+        # Loop Through Indicators
         for item in indicators:
 
             indicator = item.get("indicator")
-
             ioc_type = item.get("type")
 
-            if indicator:
+            # Skip empty indicators
+            if not indicator:
+                continue
 
-                document = {
-                    "indicator": indicator,
-                    "ioc_type": ioc_type,
-                    "source": "AlienVault OTX",
-                    "threat_type": pulse_name,
-                    "confidence": "medium",
-                    "status": "active"
-                }
+            # MongoDB Document
+            document = {
 
-                # Deduplication
-                existing = collection.find_one({
-                    "indicator": indicator
-                })
+                "indicator": indicator,
 
-                if not existing:
+                "ioc_type": ioc_type,
 
-                    collection.insert_one(document)
+                "source": "AlienVault OTX",
 
-                    print(f"Inserted [{ioc_type}]: {indicator}")
-                else:
-                    print(f"Duplicate skipped: {indicator}")
+                "threat_type": pulse_name,
 
-                count += 1
+                "pulse_id": pulse_id,
 
-                # Limit for testing
-                if count == 20:
-                    break
+                "author": author,
 
-        if count == 20:
-            break
+                "created": created,
 
-else:
-    print("Failed to fetch OTX feed")
-    print(response.status_code)
+                "confidence": "medium",
+
+                "status": "active"
+            }
+
+            # Deduplication Check
+            existing = collection.find_one({
+                "indicator": indicator
+            })
+
+            # Insert if not exists
+            if not existing:
+
+                collection.insert_one(document)
+
+                inserted_count += 1
+
+                print(f"Inserted [{ioc_type}] : {indicator}")
+
+            else:
+
+                duplicate_count += 1
+
+                print(f"Duplicate skipped : {indicator}")
+
+    # Next Page
+    page += 1
+
+# Final Summary
+print("\n========== INGESTION SUMMARY ==========")
+
+print(f"Pages Processed        : {page - 1}")
+
+print(f"New Indicators Inserted: {inserted_count}")
+
+print(f"Duplicates Skipped     : {duplicate_count}")

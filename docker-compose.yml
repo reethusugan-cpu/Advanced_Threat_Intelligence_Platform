@@ -48,10 +48,13 @@ services:
 
   # Logstash: The Data Processing Pipeline
   logstash:
-    image: docker.elastic.co/logstash/logstash:8.12.0
+    build:
+      context: .
+      dockerfile: logstash.Dockerfile
     container_name: logstash
     volumes:
       - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - ./logstash/data:/opt/logstash-mongodb
     environment:
       - LS_JAVA_OPTS=-Xms1g -Xmx1g
       - MONGO_USER=${MONGO_USERNAME} # Left side: Container variable | Right side: .env variable

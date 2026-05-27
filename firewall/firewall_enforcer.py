@@ -1,4 +1,5 @@
 import subprocess
+import time
 
 def block_ip(ip_address):
     # Standard Step 1: Check if it's already there
@@ -17,10 +18,19 @@ def block_ip(ip_address):
     print(f"[+] SUCCESS: {ip_address} is now blocked.")
 
 if __name__ == "__main__":
-    print("=== Running Single Standard Firewall Engine ===")
+    print("=== Starting Firewall Automation Daemon (Live Continuous Mode) ===")
     
     # A mixed list: 3 unique IPs, and then a duplicate of the first one
     incoming_threats = ["192.0.2.1", "192.0.2.2", "192.0.2.3", "192.0.2.1"]
     
+    # 1. Process your initial mock list once on startup
     for ip in incoming_threats:
         block_ip(ip)
+        
+    print("[+] Initialization complete. Engine is now monitoring for new threats...")
+    
+    # 2. The Infinite Loop that keeps your background daemon alive permanently
+    while True:
+        # In the final integration, Member A's live database query loop goes right here!
+        # For now, we tell the daemon to sleep for 10 seconds, then repeat the loop.
+        time.sleep(10)

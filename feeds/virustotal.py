@@ -1,318 +1,509 @@
-import sys
-import os
 import requests
-import base64
 import time
-
+import base64
+import html
+import re
+import os
+from urllib.parse import urlparse
+from datetime import datetime
+from database.mongo_handler import collection
 from dotenv import load_dotenv
+# =========================================================
+# CONFIGURATION
+# =========================================================
 
-# Add project root to Python path
-sys.path.insert(
-    0,
-    os.path.dirname(
-        os.path.dirname(
-            os.path.abspath(__file__)
-        )
-    )
-)
-
-from database.mongo_connection import collection
-
-# Load environment variables
 load_dotenv()
 
-# VirusTotal API Key
 VT_API_KEY = os.getenv("VT_API_KEY")
 
-# Validate API key
-if not VT_API_KEY:
-
-    print("VirusTotal API key not found in .env")
-    exit()
-
-# Request headers
-headers = {
+VT_HEADERS = {
     "x-apikey": VT_API_KEY
 }
+# =========================================================
+# IOC DEDUPLICATION CACHE
+# =========================================================
 
-# Max IOCS to enrich per run
-MAX_IOCS = 50
+processed_iocs = set()
 
-# -----------------------------------
-# FETCH IOCS FROM DATABASE
-# -----------------------------------
+# =========================================================
+# IOC NORMALIZATION
+# =========================================================
 
-# FUTURE VERSION:
-# collection.find({"risk_score": {"$gte": 70}})
+def normalize_url(url):
 
-documents = collection.find().limit(MAX_IOCS)
+    url = html.unescape(url.strip())
 
-# Counters
-enriched_count = 0
-skipped_count = 0
-failed_count = 0
+    # remove fragments
+    url = url.split("#")[0]
 
-print("\n========== VIRUSTOTAL ENRICHMENT ==========\n")
+    # add protocol
+    if not url.startswith(("http://", "https://")):
+        url = "https://" + url
 
-# -----------------------------------
-# PROCESS EACH IOC
-# -----------------------------------
+    parsed = urlparse(url)
 
-for doc in documents:
+    clean_url = f"{parsed.scheme}://{parsed.netloc}{parsed.path}"
 
-    indicator = doc.get("indicator")
-    ioc_type = doc.get("ioc_type")
+    if parsed.query:
+        clean_url += "?" + parsed.query
 
-    # Skip invalid documents
-    if not indicator or not ioc_type:
+    return clean_url.lower()
 
-        skipped_count += 1
-        continue
+# =========================================================
+# HASH DETECTION
+# =========================================================
+
+def detect_hash_type(hash_value):
+
+    if re.fullmatch(r"[A-Fa-f0-9]{32}", hash_value):
+        return "FileHash-MD5"
+
+    elif re.fullmatch(r"[A-Fa-f0-9]{40}", hash_value):
+        return "FileHash-SHA1"
+
+    elif re.fullmatch(r"[A-Fa-f0-9]{64}", hash_value):
+        return "FileHash-SHA256"
+
+    return None
+
+# =========================================================
+# IOC TYPE DETECTION
+# =========================================================
+
+def detect_ioc_type(ioc):
+
+    hash_type = detect_hash_type(ioc)
+
+    if hash_type:
+        return hash_type
+
+    if ioc.startswith(("http://", "https://")):
+        return "URL"
+
+    if "/" in ioc:
+        return "URL"
+
+    if ":" in ioc:
+        return "hostname"
+
+    return "domain"
+
+# =========================================================
+# VT URL ENCODING
+# =========================================================
+
+def generate_url_id(url):
+
+    encoded = base64.urlsafe_b64encode(
+        url.encode()
+    ).decode()
+
+    return encoded.strip("=")
+
+# =========================================================
+# IOC CATEGORY DETECTION
+# =========================================================
+
+def classify_ioc(tags, malicious):
+
+    tags = [t.lower() for t in tags]
+
+    if "phishing" in tags:
+        return "phishing"
+
+    elif "trojan" in tags:
+        return "trojan"
+
+    elif "ransomware" in tags:
+        return "ransomware"
+
+    elif "botnet" in tags or "bot" in tags:
+        return "botnet"
+
+    elif "worm" in tags:
+        return "worm"
+
+    elif "exploit" in tags:
+        return "exploit-kit"
+
+    elif malicious >= 30:
+        return "malware"
+
+    return "suspicious"
+
+# =========================================================
+# RISK CLASSIFICATION
+# =========================================================
+
+def risk_level(score):
+
+    if score <= 20:
+        return "LOW"
+
+    elif score <= 50:
+        return "MEDIUM"
+
+    elif score <= 80:
+        return "HIGH"
+
+    return "CRITICAL"
+
+# =========================================================
+# VT LOOKUP
+# =========================================================
+
+def query_virustotal(ioc, ioc_type):
 
     try:
 
-        # -----------------------------------
-        # DOMAIN / HOSTNAME
-        # -----------------------------------
+        # -------------------------------------------------
+        # FILE HASHES
+        # -------------------------------------------------
 
-        if ioc_type.lower() in [
-            "domain",
-            "hostname"
-        ]:
+        if ioc_type.startswith("FileHash"):
 
-            vt_url = (
-                f"https://www.virustotal.com/"
-                f"api/v3/domains/{indicator}"
-            )
+            endpoint = f"https://www.virustotal.com/api/v3/files/{ioc}"
 
-        # -----------------------------------
-        # IPv4
-        # -----------------------------------
+        # -------------------------------------------------
+        # URLS
+        # -------------------------------------------------
 
-        elif ioc_type.lower() in [
-            "ipv4",
-            "ip",
-            "ip_address"
-        ]:
+        elif ioc_type == "URL":
 
-            vt_url = (
-                f"https://www.virustotal.com/"
-                f"api/v3/ip_addresses/{indicator}"
-            )
+            normalized_url = normalize_url(ioc)
 
-        # -----------------------------------
-        # URL
-        # -----------------------------------
+            url_id = generate_url_id(normalized_url)
 
-        elif ioc_type.lower() == "url":
+            endpoint = f"https://www.virustotal.com/api/v3/urls/{url_id}"
 
-            encoded_url = base64.urlsafe_b64encode(
-                indicator.encode()
-            ).decode().strip("=")
-
-            vt_url = (
-                f"https://www.virustotal.com/"
-                f"api/v3/urls/{encoded_url}"
-            )
-
-        # -----------------------------------
-        # HASHES
-        # -----------------------------------
-
-        elif ioc_type.lower() in [
-            "filehash-md5",
-            "filehash-sha256",
-            "md5",
-            "sha256"
-        ]:
-
-            vt_url = (
-                f"https://www.virustotal.com/"
-                f"api/v3/files/{indicator}"
-            )
-
-        # -----------------------------------
-        # UNSUPPORTED IOC
-        # -----------------------------------
+        # -------------------------------------------------
+        # DOMAINS / HOSTNAMES
+        # -------------------------------------------------
 
         else:
 
-            print(
-                f"[SKIPPED] Unsupported IOC type: "
-                f"{ioc_type}"
-            )
-
-            skipped_count += 1
-            continue
-
-        # -----------------------------------
-        # VT API REQUEST
-        # -----------------------------------
+            endpoint = f"https://www.virustotal.com/api/v3/domains/{ioc}"
 
         response = requests.get(
-            vt_url,
-            headers=headers,
-            timeout=15
+            endpoint,
+            headers=VT_HEADERS
         )
 
-        # -----------------------------------
+        # =================================================
         # SUCCESS
-        # -----------------------------------
+        # =================================================
 
         if response.status_code == 200:
 
             data = response.json()
 
-            attributes = data.get(
-                "data",
-                {}
-            ).get(
-                "attributes",
-                {}
-            )
+            attributes = data["data"]["attributes"]
 
             stats = attributes.get(
-                "last_analysis_stats",
-                {}
+                "last_analysis_stats", {}
             )
+
+            malicious = stats.get("malicious", 0)
+            suspicious = stats.get("suspicious", 0)
+            harmless = stats.get("harmless", 0)
+            undetected = stats.get("undetected", 0)
 
             reputation = attributes.get(
-                "reputation",
-                0
+                "reputation", 0
             )
 
-            tags = attributes.get(
-                "tags",
-                []
+            tags = attributes.get("tags", [])
+
+            first_seen = attributes.get(
+                "first_submission_date"
             )
 
-            # -----------------------------------
-            # RISK SCORE LOGIC
-            # -----------------------------------
+            # ------------------------------------------------
+            # TOTAL ENGINES
+            # ------------------------------------------------
 
-            malicious = stats.get(
-                "malicious",
-                0
+            total_engines = (
+                malicious +
+                suspicious +
+                harmless +
+                undetected
             )
 
-            suspicious = stats.get(
-                "suspicious",
-                0
+            # ------------------------------------------------
+            # BETTER RISK FORMULA
+            # ------------------------------------------------
+
+            risk_score = min(
+                (malicious * 10) +
+                (suspicious * 5),
+                100
             )
 
-            risk_score = (
-                malicious * 10
-            ) + (
-                suspicious * 5
+            category = classify_ioc(
+                tags,
+                malicious
             )
 
-            # Cap score at 100
-            if risk_score > 100:
+            return {
+                "status": "success",
+                "malicious": malicious,
+                "suspicious": suspicious,
+                "harmless": harmless,
+                "undetected": undetected,
+                "total_engines": total_engines,
+                "reputation": reputation,
+                "risk_score": risk_score,
+                "risk_level": risk_level(risk_score),
+                "tags": tags,
+                "category": category,
+                "first_seen": first_seen,
+                "raw_data": data
+            }
 
-                risk_score = 100
+        # =================================================
+        # UNKNOWN IOC
+        # =================================================
 
-            # -----------------------------------
-            # UPDATE MONGODB
-            # -----------------------------------
+        elif response.status_code == 404:
+
+            return {
+                "status": "unknown"
+            }
+
+        # =================================================
+        # RATE LIMIT
+        # =================================================
+
+        elif response.status_code == 429:
+
+            return {
+                "status": "rate_limited"
+            }
+
+        # =================================================
+        # AUTH FAILURE
+        # =================================================
+
+        elif response.status_code == 401:
+
+            return {
+                "status": "auth_failed"
+            }
+
+        else:
+
+            return {
+                "status": "failed",
+                "message": f"HTTP {response.status_code}"
+            }
+
+    except Exception as e:
+
+        return {
+            "status": "error",
+            "message": str(e)
+        }
+
+# =========================================================
+# ENRICHMENT LOOP
+# =========================================================
+
+def enrich_iocs():
+
+    print("\n========== VIRUSTOTAL ENRICHMENT ==========\n")
+
+    enriched = 0
+    unknown = 0
+    skipped = 0
+    failed = 0
+
+    iocs = collection.find()
+
+    for item in iocs:
+
+        ioc = item.get("ioc") or item.get("indicator")
+
+        if not ioc:
+            skipped += 1
+            continue
+
+        # -------------------------------------------------
+        # DEDUPLICATION
+        # -------------------------------------------------
+
+        if ioc in processed_iocs:
+            print(f"[SKIPPED] Duplicate IOC: {ioc}")
+            skipped += 1
+            continue
+
+        processed_iocs.add(ioc)
+
+        ioc_type = (
+    item.get("ioc_type")
+    or detect_ioc_type(ioc)
+)
+
+        result = query_virustotal(
+            ioc,
+            ioc_type
+        )
+
+        # =================================================
+        # SUCCESS
+        # =================================================
+
+        if result["status"] == "success":
+
+            first_seen = result["first_seen"]
+
+            if first_seen:
+                first_seen = datetime.utcfromtimestamp(
+                    first_seen
+                ).strftime("%Y-%m-%d %H:%M:%S UTC")
 
             collection.update_one(
-
-                {"_id": doc["_id"]},
-
+                {"_id": item["_id"]},
                 {
                     "$set": {
-
-                        "vt_malicious": malicious,
-
-                        "vt_suspicious": suspicious,
-
-                        "vt_harmless": stats.get(
-                            "harmless",
-                            0
-                        ),
-
-                        "vt_undetected": stats.get(
-                            "undetected",
-                            0
-                        ),
-
-                        "vt_reputation": reputation,
-
-                        "vt_tags": tags,
-
-                        "risk_score": risk_score,
-
-                        "vt_enriched": True,
-
-                        "vt_last_updated": time.time()
+                        "virustotal": {
+                            "risk_score": result["risk_score"],
+                            "risk_level": result["risk_level"],
+                            "category": result["category"],
+                            "malicious_engines": result["malicious"],
+                            "suspicious_engines": result["suspicious"],
+                            "total_engines": result["total_engines"],
+                            "reputation": result["reputation"],
+                            "tags": result["tags"],
+                            "first_seen": first_seen,
+                            "enriched_at": time.time()
+                        }
                     }
                 }
             )
 
-            enriched_count += 1
+            print(f"[ENRICHED] [{ioc_type}] {ioc}")
 
             print(
-                f"[ENRICHED] "
-                f"[{ioc_type}] "
-                f"{indicator} "
-                f"→ Risk Score: {risk_score}"
+                f"  Detected By : "
+                f"{result['malicious']}/"
+                f"{result['total_engines']} "
+                f"Antivirus Engines"
             )
 
-        # -----------------------------------
+            print(
+                f"  Malicious Engines : "
+                f"{result['malicious']}"
+            )
+
+            print(
+                f"  Suspicious Engines : "
+                f"{result['suspicious']}"
+            )
+
+            print(
+                f"  Reputation : "
+                f"{result['reputation']}"
+            )
+
+            print(
+                f"  Risk Score : "
+                f"{result['risk_score']}"
+            )
+
+            print(
+                f"  Severity : "
+                f"{result['risk_level']}"
+            )
+
+            print(
+                f"  Category : "
+                f"{result['category']}"
+            )
+
+            print(
+                f"  Tags : "
+                f"{result['tags']}"
+            )
+
+            print(
+                f"  First Seen : "
+                f"{first_seen}"
+            )
+
+            print("-----------------------------------")
+
+            enriched += 1
+
+        # =================================================
+        # UNKNOWN IOC
+        # =================================================
+
+        elif result["status"] == "unknown":
+
+            print(
+                f"[UNKNOWN IOC] "
+                f"{ioc}"
+            )
+
+            unknown += 1
+
+        # =================================================
         # RATE LIMIT
-        # -----------------------------------
+        # =================================================
 
-        elif response.status_code == 429:
-
-            print(
-                "[ERROR] VirusTotal API rate limit reached."
-            )
+        elif result["status"] == "rate_limited":
 
             print(
-                "Sleeping for 60 seconds..."
+                "\n[RATE LIMITED] "
+                "Sleeping 60 seconds...\n"
             )
 
             time.sleep(60)
 
-            failed_count += 1
+        # =================================================
+        # AUTH FAILED
+        # =================================================
 
-        # -----------------------------------
-        # OTHER FAILURES
-        # -----------------------------------
+        elif result["status"] == "auth_failed":
+
+            print(
+                "\n[ERROR] Invalid API key\n"
+            )
+
+            break
+
+        # =================================================
+        # FAILED
+        # =================================================
 
         else:
 
             print(
-                f"[FAILED] "
-                f"({response.status_code}) : "
-                f"{indicator}"
+                f"[FAILED] {ioc} "
+                f"→ {result.get('message')}"
             )
 
-            failed_count += 1
+            failed += 1
 
-        # IMPORTANT:
-        # Free API rate limiting
+        # Free API rate limit safety
         time.sleep(2)
 
-    except Exception as e:
+    # =====================================================
+    # SUMMARY
+    # =====================================================
 
-        print(
-            f"[ERROR] "
-            f"{indicator} : {e}"
-        )
+    print("\n========== SUMMARY ==========\n")
 
-        failed_count += 1
+    print(f"Enriched IOCS : {enriched}")
+    print(f"Unknown IOCS  : {unknown}")
+    print(f"Skipped IOCS  : {skipped}")
+    print(f"Failed IOCS   : {failed}")
 
-# -----------------------------------
-# SUMMARY
-# -----------------------------------
+    print("\nVirusTotal enrichment completed!\n")
 
-print("\n========== SUMMARY ==========\n")
+# =========================================================
+# ENTRY POINT
+# =========================================================
 
-print(f"Enriched IOCS : {enriched_count}")
-
-print(f"Skipped IOCS  : {skipped_count}")
-
-print(f"Failed IOCS   : {failed_count}")
-
-print("\nVirusTotal enrichment completed!\n")
+if __name__ == "__main__":
+    enrich_iocs()

@@ -1,0 +1,18 @@
+[Unit]
+Description=Threat Intelligence Firewall Enforcer
+Documentation=https://github.com/Advanced_Threat_Intelligence_Platform
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Restart=on-failure
+WorkingDirectory=/home/kali/Advanced_Threat_Intelligence_Platform/firewall
+ExecStart=/usr/bin/python3 /home/kali/Advanced_Threat_Intelligence_Platform/firewall/firewall_enforcer.py
+User=root
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=threat-enforcer
+
+[Install]
+WantedBy=multi-user.target

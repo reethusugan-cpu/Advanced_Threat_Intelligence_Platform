@@ -10,6 +10,7 @@ Restart=on-failure
 WorkingDirectory=/home/kali/Advanced_Threat_Intelligence_Platform/firewall
 ExecStart=/usr/bin/python3 /home/kali/Advanced_Threat_Intelligence_Platform/firewall/firewall_enforcer.py
 User=root
+Environment=PYTHONUNBUFFERED=1
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=threat-enforcer

@@ -61,15 +61,12 @@ def get_high_risk_iocs():
             f"Processing : {indicator}"
         )
 
-        ip = extract_ip_from_ioc(
-            indicator,
-            ioc_type
-        )
+        ip = extract_ip_from_ioc(indicator, ioc_type)
 
         if not ip:
-
             print("Could not resolve\n")
-
+            # FIX: Mark it true for processed so it gets excluded next time!
+            mark_processed(doc["_id"], ip=None) 
             continue
 
         print(f"Resolved IP : {ip}\n")

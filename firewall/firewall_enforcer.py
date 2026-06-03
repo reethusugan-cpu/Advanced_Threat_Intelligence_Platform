@@ -67,4 +67,4 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"[-] Integration execution error: {e}")
         
-        time.sleep(10)
+        time.sleep(60)

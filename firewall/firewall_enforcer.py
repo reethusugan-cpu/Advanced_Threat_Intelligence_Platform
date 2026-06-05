@@ -32,10 +32,17 @@ def block_ip(ip_address):
     )
 
     if check_result.returncode == 0:
-        print(f"[*] SKIP: {ip_address} already blocked.")
+
+        print(
+            f"[*] SKIP: {ip_address} already blocked."
+        )
+
         return
 
-    print(f"[!] Blocking IP : {ip_address}")
+    print(
+        f"[!] Blocking IP : {ip_address}"
+    )
+
     block_command = [
         "sudo",
         "iptables",

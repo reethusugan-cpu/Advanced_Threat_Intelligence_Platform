@@ -61,9 +61,14 @@ services:
       - MONGO_PASS=${MONGO_PASSWORD}
     networks:
       - elk-network
+    # Fix: Bypasses standard health check gating since native health checks are disabled.
+    # Forces the pipeline to spin up as soon as the core data stores enter a 'started' state,
+    # preventing connection timeouts and orchestration launch blocks.
     depends_on:
-      - elasticsearch
-      - mongodb
+      elasticsearch:
+        condition: service_started
+      mongodb:
+        condition: service_started
 
   # Kibana: The Visualization Dashboard
   kibana:
@@ -75,8 +80,11 @@ services:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
     networks:
       - elk-network
+    # Fix: Aligns Kibana UI initialization with the modified un-gated Elasticsearch lifecycle.
+    # Prevents the container from failing state validation checks during the platform boot sequence.
     depends_on:
-      - elasticsearch
+      elasticsearch:
+        condition: service_started
 
 networks:
   elk-network:

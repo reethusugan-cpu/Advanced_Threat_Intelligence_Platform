@@ -10,7 +10,4 @@ RUN mkdir -p /opt/logstash-mongodb && chown -R logstash:root /opt/logstash-mongo
 USER logstash
 
 # Install the MongoDB input plugin
-RUN logstash-plugin install logstash-input-mongodbFROM docker.elastic.co/logstash/logstash:8.12.0
-
-# Install the MongoDB input plugin
 RUN logstash-plugin install logstash-input-mongodb
